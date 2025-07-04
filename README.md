@@ -57,10 +57,11 @@ bash
 conda create -n wimbledonapi python=3.9
 conda activate wimbledonapi
 
-4. Install dependencies
-
+3. Install dependencies
+bash
 pip install -r requirements.txt
-5. Run the FastAPI server
+4. Run the FastAPI server
+bash
 uvicorn main:app --reload
 
 💡 Usage
