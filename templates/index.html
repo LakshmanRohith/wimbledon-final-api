@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wimbledon Final Info</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f8fb;
+      }
+      input,
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+      .output {
+        margin-top: 20px;
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎾 Wimbledon Final Info</h1>
+    <label for="year">Enter Year:</label>
+    <input type="number" id="year" placeholder="e.g., 2021" />
+    <button onclick="fetchWimbledonData()">Get Details</button>
+
+    <div class="output" id="output"></div>
+
+    <script>
+      async function fetchWimbledonData() {
+        const year = document.getElementById("year").value;
+        const outputDiv = document.getElementById("output");
+
+        if (!year) {
+          outputDiv.innerHTML =
+            "<p style='color:red;'>Please enter a valid year.</p>";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `http://127.0.0.1:8000/wimbledon?year=${year}`
+          );
+          if (!response.ok) {
+            throw new Error("Year not found in data.");
+          }
+
+          const data = await response.json();
+          outputDiv.innerHTML = `
+          <h3>🏆 ${data.year} Wimbledon Final</h3>
+          <p><strong>Champion:</strong> ${data.champion}</p>
+          <p><strong>Runner-up:</strong> ${data.runner_up}</p>
+          <p><strong>Score:</strong> ${data.score}</p>
+          <p><strong>Sets:</strong> ${data.sets}</p>
+          <p><strong>Tiebreak:</strong> ${data.tiebreak ? "Yes" : "No"}</p>
+        `;
+        } catch (error) {
+          outputDiv.innerHTML = `<p style='color:red;'>${error.message}</p>`;
+        }
+      }
+    </script>
+  </body>
+</html>
