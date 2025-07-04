@@ -85,11 +85,11 @@ uvicorn main:app --reload
 
 ---
 
-## 📧 Contact
+## 📧 Contact: 8309935515
 
 Made with ❤️ by **Lakshman Sanagapalli**
 
-📬 Email: [your-email@example.com]  
-🔗 GitHub: [https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+📬 Email: [lakshmansanagapalli@gmail.com]  
+
 
 ---
