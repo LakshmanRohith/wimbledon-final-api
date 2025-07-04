@@ -71,13 +71,7 @@ Enter a year in the input field (e.g., 2021) and click "Get Details"
 
 The backend will return Wimbledon final match details for that year
 
-📧 Contact
-Made with ❤️ by Lakshman Sanagapalli
 
-📬 Email: [your-email@example.com]
-🔗 GitHub: https://github.com/YOUR_USERNAME
 
-yaml
-Copy
-Edit
+
 
